@@ -1,4 +1,5 @@
-﻿using BatchBuilder.Model.Interfaces;
+﻿using Batches.Model.BatchRequest;
+using Batches.Model.TaskHandlers;
 
 namespace Batches.Model.BatchTasks.Maintenance
 {

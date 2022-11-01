@@ -1,4 +1,6 @@
-﻿namespace BatchBuilder.Model.Interfaces
+﻿using Batches.Model.BatchRequest;
+
+namespace Batches.Model.TaskHandlers
 {
     public abstract class TaskHandlerBase
     {

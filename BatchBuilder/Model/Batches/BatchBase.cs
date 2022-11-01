@@ -1,6 +1,8 @@
-﻿using Notifications.Model.Interfaces;
+﻿using Batches.Model.BatchRequest;
+using Batches.Model.TaskHandlers;
+using Notifications.Model.Interfaces;
 
-namespace BatchBuilder.Model.Interfaces
+namespace Batches.Model.Batches
 {
     public abstract class BatchBase
     {

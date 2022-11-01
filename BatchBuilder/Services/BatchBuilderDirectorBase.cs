@@ -1,6 +1,7 @@
-﻿using BatchBuilder.Model.Interfaces;
+﻿using Batches.Model.Batches;
+using Batches.Model.BatchRequest;
 
-namespace Batches
+namespace Batches.Services
 {
     public abstract class BatchBuilderDirectorBase
     {

@@ -1,6 +1,6 @@
 ﻿using BatchBuilder.Model.Enums;
 
-namespace BatchBuilder.Model.Interfaces
+namespace Batches.Model.BatchRequest
 {
     public interface IBatchRequest
     {

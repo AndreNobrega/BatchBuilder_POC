@@ -1,6 +1,7 @@
-﻿using BatchBuilder.Model.Interfaces;
+﻿using Batches.Model.Batches;
+using Batches.Model.BatchRequest;
 
-namespace Batches.Model.Interfaces
+namespace Batches.Model.BatchBuilders
 {
     internal interface IBatchBuilder
     {

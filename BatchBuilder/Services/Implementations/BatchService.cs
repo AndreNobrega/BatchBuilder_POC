@@ -1,6 +1,6 @@
-﻿using BatchBuilder.Model.Interfaces;
+﻿using Batches.Model.BatchRequest;
 
-namespace Batches
+namespace Batches.Services.Implementations
 {
     public class BatchService : IBatchService
     {

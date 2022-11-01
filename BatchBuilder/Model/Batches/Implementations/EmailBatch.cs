@@ -1,7 +1,8 @@
-﻿using BatchBuilder.Model.Interfaces;
+﻿using Batches.Model.BatchRequest;
+using Batches.Model.TaskHandlers;
 using Notifications.Model.Interfaces;
 
-namespace Batches.Model.Batches
+namespace Batches.Model.Batches.Implementations
 {
     internal class EmailBatch : BatchBase
     {

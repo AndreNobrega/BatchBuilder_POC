@@ -1,8 +1,9 @@
-﻿using BatchBuilder.Model.Interfaces;
-using Batches.Model.BatchBuilders;
+﻿using Batches.Model.BatchBuilders;
 using Batches.Model.Batches;
+using Batches.Model.Batches.Implementations;
+using Batches.Model.BatchRequest;
 
-namespace Batches
+namespace Batches.Services.Implementations
 {
     internal class BatchBuilderDirector : BatchBuilderDirectorBase
     {
@@ -30,7 +31,7 @@ namespace Batches
 
         private MaintenanceBatch BuildMaintenanceBatch(IBatchRequest request)
         {
-            return (MaintenanceBatch) _maintenanceBatchBuilder.BuildBatch(request);
+            return (MaintenanceBatch)_maintenanceBatchBuilder.BuildBatch(request);
         }
     }
 }

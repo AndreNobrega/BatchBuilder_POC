@@ -1,5 +1,7 @@
 ﻿using Batches.Model.BatchBuilders;
 using Batches.Model.BatchBuilders.Implementations;
+using Batches.Services;
+using Batches.Services.Implementations;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Batches.DependencyInjection

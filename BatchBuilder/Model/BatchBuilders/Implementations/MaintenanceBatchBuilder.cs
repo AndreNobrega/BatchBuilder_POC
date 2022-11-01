@@ -1,5 +1,5 @@
-﻿using BatchBuilder.Model.Interfaces;
-using Batches.Model.Batches;
+﻿using Batches.Model.Batches;
+using Batches.Model.BatchRequest;
 using Batches.Model.BatchTasks.Maintenance;
 
 namespace Batches.Model.BatchBuilders.Implementations
