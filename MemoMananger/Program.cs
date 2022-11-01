@@ -1,4 +1,5 @@
 using Batches.DependencyInjection;
+using MemoMananger.DependencyInjection;
 using Notifications.DependencyInjection;
 using Serilog;
 
@@ -21,6 +22,7 @@ builder.Host.UseSerilog(logger);
 builder.Services.AddRazorPages();
 
 // Dependency injection through extension methods
+builder.Services.AddMemoDependencies();
 builder.Services.AddBatchDependencies();
 builder.Services.AddNotificationDependencies();
 
