@@ -1,12 +1,13 @@
 ﻿using Batches.Model.BatchRequest;
 using Batches.Model.TaskHandlers;
 using Notifications.Model.Interfaces;
+using Serilog;
 
 namespace Batches.Model.Batches.Implementations
 {
     internal class EmailBatch : BatchBase
     {
-        public EmailBatch(IBatchRequest request, TaskHandlerBase initialTask) : base(request, initialTask)
+        public EmailBatch(ILogger logger, IBatchRequest request, TaskHandlerBase initialTask) : base(logger, request, initialTask)
         {
         }
 

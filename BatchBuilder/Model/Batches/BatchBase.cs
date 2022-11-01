@@ -1,17 +1,20 @@
 ﻿using Batches.Model.BatchRequest;
 using Batches.Model.TaskHandlers;
 using Notifications.Model.Interfaces;
+using Serilog;
 
 namespace Batches.Model.Batches
 {
     public abstract class BatchBase
     {
+        protected readonly ILogger _logger;
         protected readonly IBatchRequest _request;
         protected readonly TaskHandlerBase _initialTask;
         protected int TaskCount => _initialTask.TaskCount;
 
-        internal BatchBase(IBatchRequest request, TaskHandlerBase initialTask)
+        internal BatchBase(ILogger logger, IBatchRequest request, TaskHandlerBase initialTask)
         {
+            _logger = logger;
             _request = request ?? throw new ArgumentNullException(nameof(request));
             _initialTask = initialTask ?? throw new ArgumentNullException(nameof(initialTask));
         }
@@ -23,9 +26,9 @@ namespace Batches.Model.Batches
                 _initialTask.Handle();
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                // todo: log error
+                _logger.Error(ex, "Error occurred during batch task execution.");
                 return false;
             }
         }

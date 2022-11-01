@@ -1,12 +1,12 @@
 ﻿using Batches.Model.BatchRequest;
 using Batches.Model.TaskHandlers;
-using Notifications.Model.Interfaces;
+using Serilog;
 
 namespace Batches.Model.Batches.Implementations
 {
     internal class MaintenanceBatch : BatchBase
     {
-        public MaintenanceBatch(IBatchRequest request, TaskHandlerBase initialTask) : base(request, initialTask)
+        public MaintenanceBatch(ILogger logger, IBatchRequest request, TaskHandlerBase initialTask) : base(logger, request, initialTask)
         {
         }
     }

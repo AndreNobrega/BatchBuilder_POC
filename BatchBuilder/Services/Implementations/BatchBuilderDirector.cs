@@ -2,15 +2,18 @@
 using Batches.Model.Batches;
 using Batches.Model.Batches.Implementations;
 using Batches.Model.BatchRequest;
+using Serilog;
 
 namespace Batches.Services.Implementations
 {
     internal class BatchBuilderDirector : BatchBuilderDirectorBase
     {
+        private readonly ILogger _logger;
         private readonly IMaintenanceBatchBuilder _maintenanceBatchBuilder;
 
-        public BatchBuilderDirector(IMaintenanceBatchBuilder maintenanceBatchBuilder)
+        public BatchBuilderDirector(ILogger logger, IMaintenanceBatchBuilder maintenanceBatchBuilder)
         {
+            _logger = logger;
             _maintenanceBatchBuilder = maintenanceBatchBuilder;
         }
 
@@ -31,7 +34,7 @@ namespace Batches.Services.Implementations
 
         private MaintenanceBatch BuildMaintenanceBatch(IBatchRequest request)
         {
-            return (MaintenanceBatch)_maintenanceBatchBuilder.BuildBatch(request);
+            return (MaintenanceBatch)_maintenanceBatchBuilder.BuildBatch(_logger, request);
         }
     }
 }

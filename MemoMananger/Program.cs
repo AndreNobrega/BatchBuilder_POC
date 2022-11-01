@@ -5,7 +5,10 @@ using Serilog;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add Serilog
-builder.Host.UseSerilog();
+var logger = new LoggerConfiguration()
+    .WriteTo.Console()
+    .CreateLogger();
+builder.Host.UseSerilog(logger);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
@@ -16,7 +19,7 @@ builder.Services.AddNotificationDependencies();
 
 var app = builder.Build();
 
-Log.Logger.Information("Application starting...");
+logger.Information("Application starting...");
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

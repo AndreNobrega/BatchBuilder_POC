@@ -2,12 +2,13 @@
 using Batches.Model.Batches.Implementations;
 using Batches.Model.BatchRequest;
 using Batches.Model.BatchTasks.Maintenance;
+using Serilog;
 
 namespace Batches.Model.BatchBuilders.Implementations
 {
     internal class MaintenanceBatchBuilder : IMaintenanceBatchBuilder
     {
-        public BatchBase BuildBatch(IBatchRequest request)
+        public BatchBase BuildBatch(ILogger logger, IBatchRequest request)
         {
             if (request is null) throw new ArgumentNullException(nameof(request));
 
@@ -17,7 +18,7 @@ namespace Batches.Model.BatchBuilders.Implementations
 
             task1.SetNext(task2).SetNext(task3);
 
-            var maintenanceBatch = new MaintenanceBatch(request, task1);
+            var maintenanceBatch = new MaintenanceBatch(logger, request, task1);
             return maintenanceBatch;
         }
     }
