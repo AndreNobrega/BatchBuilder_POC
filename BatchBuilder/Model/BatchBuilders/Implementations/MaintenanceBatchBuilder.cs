@@ -1,4 +1,5 @@
 ﻿using Batches.Model.Batches;
+using Batches.Model.Batches.Implementations;
 using Batches.Model.BatchRequest;
 using Batches.Model.BatchTasks.Maintenance;
 
