@@ -20,7 +20,7 @@ namespace Batches.Services.Implementations
             {
                 BatchBuilder.Model.Enums.BatchType.Email => BuildEmailBatch(request),
                 BatchBuilder.Model.Enums.BatchType.Maintenance => BuildMaintenanceBatch(request),
-                _ => throw new NotImplementedException("Batch type is currently not implemented"),
+                _ => throw new NotImplementedException($"Batch type \"{request.BatchType}\" is currently not implemented."),
             };
         }
 
