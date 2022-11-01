@@ -12,6 +12,8 @@ namespace Batches.Model.BatchTasks.Maintenance
         internal override void Handle()
         {
             Console.WriteLine("Pretend I'm deleting something else...");
+
+            _nextHandler?.Handle(); //todo: move this logic to the base class
         }
     }
 }

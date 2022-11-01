@@ -19,6 +19,13 @@ namespace Batches.Model.TaskHandlers
             return _nextHandler;
         }
 
+        /*
+         * TODO
+         * - Get implementation business logic from a delegate
+         * - Call the Handle() method in the _nextHandler
+         * - Add error handling
+         * - Add notification update behaviour
+         */
         internal abstract void Handle();
     }
 }

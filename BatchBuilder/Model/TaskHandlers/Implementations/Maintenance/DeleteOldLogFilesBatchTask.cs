@@ -12,6 +12,8 @@ namespace Batches.Model.BatchTasks.Maintenance
         internal override void Handle()
         {
             Console.WriteLine("Let's pretend I'm looking for log files, and cleaning them up");
+
+            _nextHandler?.Handle(); //todo: move this logic to the base class
         }
     }
 }
