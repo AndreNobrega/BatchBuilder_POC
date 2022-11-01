@@ -4,11 +4,11 @@ using Batches.Model.Batches;
 
 namespace Batches
 {
-    internal class BatchDirector : BatchDirectorBase
+    internal class BatchBuilderDirector : BatchBuilderDirectorBase
     {
         private readonly IMaintenanceBatchBuilder _maintenanceBatchBuilder;
 
-        public BatchDirector(IMaintenanceBatchBuilder maintenanceBatchBuilder)
+        public BatchBuilderDirector(IMaintenanceBatchBuilder maintenanceBatchBuilder)
         {
             _maintenanceBatchBuilder = maintenanceBatchBuilder;
         }

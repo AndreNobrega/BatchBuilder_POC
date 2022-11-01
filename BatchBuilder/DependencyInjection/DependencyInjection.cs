@@ -9,7 +9,7 @@ namespace Batches.DependencyInjection
         public static void AddBatchDependencies(this IServiceCollection services)
         {
             services.AddScoped<IBatchService, BatchService>();
-            services.AddScoped<BatchDirectorBase, BatchDirector>();
+            services.AddScoped<BatchBuilderDirectorBase, BatchBuilderDirector>();
 
             services.AddScoped<IMaintenanceBatchBuilder, MaintenanceBatchBuilder>();
         }

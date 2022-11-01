@@ -2,7 +2,7 @@
 
 namespace Batches
 {
-    public abstract class BatchDirectorBase
+    public abstract class BatchBuilderDirectorBase
     {
         internal abstract BatchBase BuildBatch(IBatchRequest request);
     }

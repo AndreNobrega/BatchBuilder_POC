@@ -4,9 +4,9 @@ namespace Batches
 {
     public class BatchService : IBatchService
     {
-        private readonly BatchDirectorBase batchDirector;
+        private readonly BatchBuilderDirectorBase batchDirector;
 
-        public BatchService(BatchDirectorBase batchDirector)
+        public BatchService(BatchBuilderDirectorBase batchDirector)
         {
             this.batchDirector = batchDirector;
         }

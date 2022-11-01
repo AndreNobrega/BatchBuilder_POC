@@ -14,7 +14,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BatchBuilder\Batches.csproj" />
-    <ProjectReference Include="..\Notifications\Notifications.csproj" />
   </ItemGroup>
 
 </Project>
