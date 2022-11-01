@@ -1,8 +1,8 @@
 ﻿using BatchBuilder.Model.Enums;
 
-namespace Batches.Model.BatchRequest
+namespace Batches.Model.BatchRequest.Implementations
 {
-    public interface IBatchRequest
+    public class BatchRequest : IBatchRequest
     {
         public string? BatchId { get; set; }
         public BatchType BatchType { get; set; }
