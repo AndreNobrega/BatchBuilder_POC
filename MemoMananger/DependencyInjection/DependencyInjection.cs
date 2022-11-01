@@ -1,4 +1,5 @@
-﻿using System.Runtime.CompilerServices;
+﻿using MemoMananger.Controllers;
+using System.Runtime.CompilerServices;
 
 namespace MemoMananger.DependencyInjection
 {
@@ -7,6 +8,7 @@ namespace MemoMananger.DependencyInjection
         public static void AddMemoDependencies(this IServiceCollection services)
         {
             services.AddScoped<IMemoService, MemoService>();
+            services.AddScoped<ITestController, TestController>();
         }
     }
 }

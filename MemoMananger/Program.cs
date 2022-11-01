@@ -1,5 +1,6 @@
 using Batches.DependencyInjection;
 using MemoMananger.DependencyInjection;
+using Microsoft.AspNetCore.Http.Connections;
 using Notifications.DependencyInjection;
 using Serilog;
 
@@ -46,5 +47,9 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapRazorPages();
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
