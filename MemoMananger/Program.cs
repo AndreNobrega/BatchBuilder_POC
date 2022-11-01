@@ -5,7 +5,14 @@ using Serilog;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add Serilog
+var logConfig = new ConfigurationBuilder()
+        .SetBasePath(Directory.GetCurrentDirectory())
+        .AddJsonFile("appsettings.json")
+        .AddJsonFile($"appsettings.{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Production"}.json", true)
+        .Build();
+
 var logger = new LoggerConfiguration()
+    .ReadFrom.Configuration(logConfig)
     .WriteTo.Console()
     .CreateLogger();
 builder.Host.UseSerilog(logger);
