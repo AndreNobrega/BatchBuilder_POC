@@ -1,6 +1,6 @@
 ﻿namespace Notifications.Model.Enums
 {
-    internal enum ProgressState
+    public enum ProgressState
     {
         Created,
         InProgress,

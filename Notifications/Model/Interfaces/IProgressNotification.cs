@@ -2,7 +2,7 @@
 
 namespace Notifications.Model.Interfaces
 {
-    internal interface IProgressNotification : INotification
+    public interface IProgressNotification : INotification
     {
         public int TotalItems { get; set; }
         public int ItemsSucceeded { get; set; }
