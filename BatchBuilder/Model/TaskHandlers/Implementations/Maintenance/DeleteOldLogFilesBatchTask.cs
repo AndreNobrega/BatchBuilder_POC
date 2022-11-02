@@ -7,13 +7,12 @@ namespace Batches.Model.BatchTasks.Maintenance
     {
         public DeleteOldLogFilesTaskHandler(IBatchRequest batchRequest) : base(batchRequest)
         {
+            TaskLogic = DeleteOldLogFiles;
         }
 
-        internal override void Handle()
+        private void DeleteOldLogFiles()
         {
-            Console.WriteLine("Let's pretend I'm looking for log files, and cleaning them up");
-
-            _nextHandler?.Handle(); //todo: move this logic to the base class
+            Console.WriteLine("Pretend I'm deleting old log files...");
         }
     }
 }

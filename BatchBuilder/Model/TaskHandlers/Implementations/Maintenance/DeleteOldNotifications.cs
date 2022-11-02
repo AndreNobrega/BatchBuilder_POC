@@ -7,13 +7,12 @@ namespace Batches.Model.BatchTasks.Maintenance
     {
         public DeleteOldNotificationsTaskHandler(IBatchRequest batchRequest) : base(batchRequest)
         {
+            TaskLogic = DeleteOldNotifications;
         }
 
-        internal override void Handle()
+        public void DeleteOldNotifications()
         {
-            Console.WriteLine("Pretend I'm deleting old notifications from the database...");
-
-            _nextHandler?.Handle(); //todo: move this logic to the base class
+            Console.WriteLine("Pretend I'm deleting old notifications...");
         }
     }
 }

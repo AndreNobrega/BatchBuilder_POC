@@ -7,13 +7,12 @@ namespace Batches.Model.BatchTasks.Maintenance
     {
         public DeleteSomethingElseTaskHandler(IBatchRequest batchRequest) : base(batchRequest)
         {
+            TaskLogic = DeleteSomethingElse;
         }
 
-        internal override void Handle()
+        private void DeleteSomethingElse()
         {
             Console.WriteLine("Pretend I'm deleting something else...");
-
-            _nextHandler?.Handle(); //todo: move this logic to the base class
         }
     }
 }

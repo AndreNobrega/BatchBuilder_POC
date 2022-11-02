@@ -8,6 +8,10 @@ namespace Batches.Model.TaskHandlers
         protected readonly IBatchRequest _batchRequest;
         protected TaskHandlerBase? _nextHandler;
 
+        protected delegate void TaskLogicDelegate();
+        protected TaskLogicDelegate? TaskLogic;
+        public delegate void Del(string message);
+
         protected TaskHandlerBase(IBatchRequest batchRequest)
         {
             _batchRequest = batchRequest;
@@ -21,11 +25,19 @@ namespace Batches.Model.TaskHandlers
 
         /*
          * TODO
-         * - Get implementation business logic from a delegate
-         * - Call the Handle() method in the _nextHandler
          * - Add error handling
          * - Add notification update behaviour
          */
-        internal abstract void Handle();
+        //internal abstract void Handle();
+
+        public virtual void Handle()
+        {
+            if (TaskLogic is null)
+                throw new ArgumentNullException("Task logic has not been set.");
+
+            TaskLogic();
+
+            _nextHandler?.Handle();
+        }
     }
 }
