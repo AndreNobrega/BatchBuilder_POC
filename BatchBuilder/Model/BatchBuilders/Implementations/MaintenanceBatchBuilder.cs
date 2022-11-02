@@ -2,7 +2,6 @@
 using Batches.Model.Batches.Implementations;
 using Batches.Model.BatchRequest;
 using Batches.Model.BatchTasks.Maintenance;
-using Notifications.Model.Interfaces;
 using Notifications.Services;
 using Serilog;
 
@@ -10,13 +9,18 @@ namespace Batches.Model.BatchBuilders.Implementations
 {
     internal class MaintenanceBatchBuilder : IMaintenanceBatchBuilder
     {
-        public BatchBase BuildBatch(ILogger logger, IBatchRequest request, INotificationService notificationService, IProgressNotification? progressNotification)
+        private const string _notificationTitle = "Maintenance";
+        private const string _notificationMessage = "Creating maintenance batch...";
+
+        public BatchBase BuildBatch(ILogger logger, IBatchRequest request, INotificationService notificationService)
         {
             if (request is null) throw new ArgumentNullException(nameof(request));
 
-            var task1 = new DeleteOldLogFilesTaskHandler(notificationService, request, progressNotification);
-            var task2 = new DeleteOldNotificationsTaskHandler(notificationService, request, progressNotification);
-            var task3 = new DeleteSomethingElseTaskHandler(notificationService, request, progressNotification);
+            var progressNotification = notificationService.CreateProgressNotification(_notificationTitle, _notificationMessage);
+
+            var task1 = new DeleteOldLogFilesTaskHandler(request, notificationService, progressNotification);
+            var task2 = new DeleteOldNotificationsTaskHandler(request, notificationService, progressNotification);
+            var task3 = new DeleteSomethingElseTaskHandler(request, notificationService, progressNotification);
 
             task1.SetNext(task2).SetNext(task3);
 

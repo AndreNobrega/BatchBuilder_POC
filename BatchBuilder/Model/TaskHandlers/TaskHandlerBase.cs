@@ -15,11 +15,10 @@ namespace Batches.Model.TaskHandlers
         public delegate void Del(string message);
         internal int TaskCount => 1 + (_nextHandler?.TaskCount ?? 0);
 
-        //protected abstract string NotificationMessage { get; set; }
         protected abstract string NotificationMessage { get; }
 
 
-        protected TaskHandlerBase(INotificationService notificationService, IBatchRequest batchRequest, IProgressNotification? progressNotification)
+        protected TaskHandlerBase(IBatchRequest batchRequest, INotificationService notificationService, IProgressNotification? progressNotification)
         {
             this.notificationService = notificationService;
             this.batchRequest = batchRequest;
@@ -35,7 +34,6 @@ namespace Batches.Model.TaskHandlers
         /*
          * TODO
          * - Add error handling
-         * - Add notification update behaviour
          */
         public virtual void Handle()
         {

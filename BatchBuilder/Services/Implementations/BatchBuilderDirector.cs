@@ -2,6 +2,7 @@
 using Batches.Model.Batches;
 using Batches.Model.Batches.Implementations;
 using Batches.Model.BatchRequest;
+using Notifications.Services;
 using Serilog;
 
 namespace Batches.Services.Implementations
@@ -10,11 +11,13 @@ namespace Batches.Services.Implementations
     {
         private readonly ILogger _logger;
         private readonly IMaintenanceBatchBuilder _maintenanceBatchBuilder;
+        private readonly INotificationService _notificationService;
 
-        public BatchBuilderDirector(ILogger logger, IMaintenanceBatchBuilder maintenanceBatchBuilder)
+        public BatchBuilderDirector(ILogger logger, IMaintenanceBatchBuilder maintenanceBatchBuilder, INotificationService notificationService)
         {
             _logger = logger;
             _maintenanceBatchBuilder = maintenanceBatchBuilder;
+            _notificationService = notificationService;
         }
 
         internal override BatchBase BuildBatch(IBatchRequest request)
@@ -29,12 +32,12 @@ namespace Batches.Services.Implementations
 
         private EmailBatch BuildEmailBatch(IBatchRequest request)
         {
-            throw new NotImplementedException();
+            throw new NotImplementedException(); // todo: write call for email batch building
         }
 
         private MaintenanceBatch BuildMaintenanceBatch(IBatchRequest request)
         {
-            return (MaintenanceBatch)_maintenanceBatchBuilder.BuildBatch(_logger, request);
+            return (MaintenanceBatch)_maintenanceBatchBuilder.BuildBatch(_logger, request, _notificationService);
         }
     }
 }

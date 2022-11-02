@@ -7,8 +7,8 @@ namespace Batches.Model.BatchTasks.Maintenance
 {
     internal class DeleteOldLogFilesTaskHandler : TaskHandlerBase
     {
-        public DeleteOldLogFilesTaskHandler(INotificationService notificationService, IBatchRequest batchRequest, IProgressNotification? progressNotification) 
-            : base(notificationService, batchRequest, progressNotification)
+        public DeleteOldLogFilesTaskHandler(IBatchRequest batchRequest, INotificationService notificationService, IProgressNotification? progressNotification) 
+            : base(batchRequest, notificationService, progressNotification)
         {
             TaskLogic = DeleteOldLogFiles;
         }
