@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-namespace MemoMananger.Controllers
+﻿namespace MemoManager.Controllers
 {
     public interface ITestController
     {

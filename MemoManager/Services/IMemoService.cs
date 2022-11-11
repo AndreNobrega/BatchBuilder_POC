@@ -1,4 +1,4 @@
-﻿namespace MemoMananger
+﻿namespace MemoManager.Services
 {
     public interface IMemoService
     {

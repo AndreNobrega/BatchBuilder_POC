@@ -1,7 +1,6 @@
-﻿using Batches.Model.BatchRequest.Implementations;
-using Batches.Services;
+﻿using Batches.Services;
 
-namespace MemoMananger
+namespace MemoManager.Services
 {
     public class MemoService : IMemoService
     {

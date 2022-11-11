@@ -1,7 +1,7 @@
-﻿using MemoMananger.Controllers;
-using System.Runtime.CompilerServices;
+﻿using MemoManager.Controllers;
+using MemoManager.Services;
 
-namespace MemoMananger.DependencyInjection
+namespace MemoManager.DependencyInjection
 {
     public static class DependencyInjection
     {

@@ -1,6 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MemoManager.Services;
+using Microsoft.AspNetCore.Mvc;
 
-namespace MemoMananger.Controllers
+namespace MemoManager.Controllers
 {
     public class TestController : Controller, ITestController
     {

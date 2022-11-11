@@ -1,9 +1,34 @@
+using Batches.DependencyInjection;
+using MemoManager.DependencyInjection;
+using Notifications.DependencyInjection;
+using Serilog;
+
 var builder = WebApplication.CreateBuilder(args);
+
+// Add Serilog
+var logConfig = new ConfigurationBuilder()
+        .SetBasePath(Directory.GetCurrentDirectory())
+        .AddJsonFile("appsettings.json")
+        .AddJsonFile($"appsettings.{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Production"}.json", true)
+        .Build();
+
+var logger = new LoggerConfiguration()
+    .ReadFrom.Configuration(logConfig)
+    .WriteTo.Console()
+    .CreateLogger();
+builder.Host.UseSerilog(logger);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 
+// Dependency injection through extension methods
+builder.Services.AddMemoDependencies();
+builder.Services.AddBatchDependencies();
+builder.Services.AddNotificationDependencies();
+
 var app = builder.Build();
+
+logger.Information("Application starting...");
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -21,5 +46,9 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapRazorPages();
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
