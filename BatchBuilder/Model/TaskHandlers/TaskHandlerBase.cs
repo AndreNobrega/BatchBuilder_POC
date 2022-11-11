@@ -6,17 +6,17 @@ namespace Batches.Model.TaskHandlers
 {
     public abstract class TaskHandlerBase
     {
-        protected readonly INotificationService notificationService;
-        protected readonly IBatchRequest batchRequest;
-        protected readonly IProgressNotification? progressNotification;
-        protected TaskHandlerBase? _nextHandler;
         protected delegate void TaskLogicDelegate();
         protected TaskLogicDelegate? TaskLogic;
-        public delegate void Del(string message);
-        internal int TaskCount => 1 + (_nextHandler?.TaskCount ?? 0);
+        protected readonly IBatchRequest batchRequest;
+        protected TaskHandlerBase? _nextHandler;
 
         protected abstract string NotificationMessage { get; }
-
+        protected readonly INotificationService notificationService;
+        protected readonly IProgressNotification? progressNotification;
+        
+        protected readonly int numberOfJobsInTask = 1;
+        internal int TaskCount => numberOfJobsInTask + (_nextHandler?.TaskCount ?? 0);
 
         protected TaskHandlerBase(IBatchRequest batchRequest, INotificationService notificationService, IProgressNotification? progressNotification)
         {
@@ -32,8 +32,7 @@ namespace Batches.Model.TaskHandlers
         }
 
         /*
-         * TODO
-         * - Add error handling
+         * TODO: add error handling
          */
         public virtual void Handle()
         {

@@ -7,9 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Batches", "BatchBuilder\Bat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Notifications", "Notifications\Notifications.csproj", "{238E63B5-4C7B-40B1-A9B9-3728FBC2FC5A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemoMananger", "MemoMananger\MemoMananger.csproj", "{F185CFDF-0A9C-41E5-96E5-1D6E955A66DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MemoManager", "MemoMananger\MemoManager.csproj", "{F185CFDF-0A9C-41E5-96E5-1D6E955A66DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Batches.Tests", "Batches.Tests\Batches.Tests.csproj", "{B4CB9CD6-EA32-4057-8F40-C38AF69F530D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Batches.Tests", "Batches.Tests\Batches.Tests.csproj", "{B4CB9CD6-EA32-4057-8F40-C38AF69F530D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
