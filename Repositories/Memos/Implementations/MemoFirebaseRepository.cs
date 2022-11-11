@@ -1,26 +1,26 @@
 ﻿using Shared.Model;
 
-namespace Repositories.Users.Implementations
+namespace Repositories.Memos.Implementations
 {
-    // todo: implement UserRepository
-    internal class UserRepository : IUserRepository
+    //todo: implement MemoRepository for Firebase
+    public class MemoFirebaseRepository : IMemoRepository
     {
-        public int AddUser(User user)
+        public int AddMemo(Memo memo)
         {
             throw new NotImplementedException();
         }
 
-        public void DeleteUser(int id)
+        public void DeleteMemo(int id)
         {
             throw new NotImplementedException();
         }
 
-        public User GetUser(int id)
+        public Memo GetMemo(int id)
         {
             throw new NotImplementedException();
         }
 
-        public void UpdateUser(User user)
+        public void UpdateMemo(Memo memo)
         {
             throw new NotImplementedException();
         }
