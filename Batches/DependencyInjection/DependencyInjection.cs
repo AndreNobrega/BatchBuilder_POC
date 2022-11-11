@@ -12,7 +12,6 @@ namespace Batches.DependencyInjection
         {
             services.AddScoped<IBatchService, BatchService>();
             services.AddScoped<BatchBuilderDirectorBase, BatchBuilderDirector>();
-
             services.AddScoped<IMaintenanceBatchBuilder, MaintenanceBatchBuilder>();
         }
     }

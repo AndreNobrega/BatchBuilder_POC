@@ -1,3 +1,4 @@
+using Authentication.DependencyInjection;
 using Batches.DependencyInjection;
 using MemoManager.DependencyInjection;
 using Notifications.DependencyInjection;
@@ -22,8 +23,9 @@ builder.Host.UseSerilog(logger);
 builder.Services.AddRazorPages();
 
 // Dependency injection through extension methods
-builder.Services.AddMemoDependencies();
+builder.Services.AddAuthenticationDependencies();
 builder.Services.AddBatchDependencies();
+builder.Services.AddMemoDependencies();
 builder.Services.AddNotificationDependencies();
 
 var app = builder.Build();
