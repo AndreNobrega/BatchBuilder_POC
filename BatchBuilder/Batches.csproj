@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Notifications\Notifications.csproj" />
+    <ProjectReference Include="..\Shared\Shared.csproj" />
   </ItemGroup>
 
 </Project>

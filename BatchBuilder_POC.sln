@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MemoManager", "MemoMananger
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Batches.Tests", "Batches.Tests\Batches.Tests.csproj", "{B4CB9CD6-EA32-4057-8F40-C38AF69F530D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{FC3C0626-7E9E-42C1-8732-51E36BB7F994}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{B4CB9CD6-EA32-4057-8F40-C38AF69F530D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4CB9CD6-EA32-4057-8F40-C38AF69F530D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4CB9CD6-EA32-4057-8F40-C38AF69F530D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC3C0626-7E9E-42C1-8732-51E36BB7F994}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC3C0626-7E9E-42C1-8732-51E36BB7F994}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC3C0626-7E9E-42C1-8732-51E36BB7F994}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC3C0626-7E9E-42C1-8732-51E36BB7F994}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
