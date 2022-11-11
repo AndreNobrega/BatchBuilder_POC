@@ -1,9 +1,10 @@
-﻿using Batches.Model.BatchRequest;
+﻿using Shared.Model;
 
 namespace Batches.Services
 {
     public interface IBatchService
     {
-        bool StartBatch(IBatchRequest request);
+        bool StartMaintenanceBatch();
+        bool StartEmailBatch(Memo memo);
     }
 }
