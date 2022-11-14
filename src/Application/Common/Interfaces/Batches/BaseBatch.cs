@@ -1,17 +1,16 @@
-﻿using Batches.Model.BatchRequest;
-using Batches.Model.TaskHandlers;
+﻿using Application.Common.Interfaces.Notifications;
 using Serilog;
 
-namespace Batches.Model.Batches
+namespace Application.Common.Interfaces.Batches
 {
-    public abstract class BatchBase
+    internal abstract class BatchBase
     {
         protected readonly ILogger _logger;
         protected readonly IBatchRequest _request;
-        protected readonly TaskHandlerBase _initialTask;
+        protected readonly BaseTaskHandler _initialTask;
         protected int TaskCount => _initialTask.TaskCount;
 
-        internal BatchBase(ILogger logger, IBatchRequest request, TaskHandlerBase initialTask)
+        internal BatchBase(ILogger logger, IBatchRequest request, BaseTaskHandler initialTask)
         {
             _logger = logger;
             _request = request ?? throw new ArgumentNullException(nameof(request));
@@ -32,9 +31,9 @@ namespace Batches.Model.Batches
             }
         }
 
-        //protected virtual void UpdateNotification(INotification notification)
-        //{
-        //    throw new NotImplementedException();
-        //}
+        protected virtual void UpdateNotification(INotification notification)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
