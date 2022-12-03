@@ -1,10 +1,12 @@
 using Application;
 using Infrastructure;
+using MediatR;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddMediatR(typeof(Application.DependencyInjection).Assembly);
 builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureServices();
 
