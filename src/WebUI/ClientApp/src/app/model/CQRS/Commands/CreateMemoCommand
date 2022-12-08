@@ -1,0 +1,10 @@
+import { Person } from "../../Person";
+
+export class CreateMemoCommand {
+    constructor(
+        public Owner: Person,
+        public Title: string,
+        public Content: string,
+        public Recipients: Person[]
+    ) { }
+}
