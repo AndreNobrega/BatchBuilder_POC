@@ -16,6 +16,8 @@ namespace UpdateService.Worker
 		private readonly IUpdateService _updateService;
 		private readonly IConfigurationService _configurationService;
 
+		private readonly int delayInMilliseconds = 60 * 1000;
+
 		public Worker(ILogger<Worker> logger, IUpdateService updateService, IConfigurationService configurationService)
 		{
 			_logger = logger;
@@ -31,7 +33,7 @@ namespace UpdateService.Worker
 
 				CheckForUpdates();
 
-				await Task.Delay(1000, stoppingToken);
+				await Task.Delay(delayInMilliseconds, stoppingToken);
 			}
 		}
 
