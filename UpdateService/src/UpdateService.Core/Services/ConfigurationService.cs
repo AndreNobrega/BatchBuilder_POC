@@ -16,6 +16,11 @@ namespace UpdateService.Core.Services
 			_configuration = configuration;
 		}
 
+		public FileTransferSettings GetFileTransferSettings()
+		{
+			throw new NotImplementedException();
+		}
+
 		public List<Tenant> GetTenants()
 		{
 			throw new NotImplementedException();

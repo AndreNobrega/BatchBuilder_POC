@@ -6,5 +6,6 @@ namespace UpdateService.Core.Interfaces
     public interface IConfigurationService
 	{
 		public List<Tenant> GetTenants();
+		public FileTransferSettings GetFileTransferSettings();
 	}
 }
