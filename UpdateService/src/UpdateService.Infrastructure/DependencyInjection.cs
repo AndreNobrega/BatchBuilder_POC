@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using System;
+using UpdateService.Core.Interfaces;
+using UpdateService.Infrastructure.Services;
 
 namespace UpdateService.Infrastructure
 {
@@ -7,7 +8,7 @@ namespace UpdateService.Infrastructure
 	{
 		public static void AddInfrastructureServices(this IServiceCollection services)
 		{
-
+			services.AddScoped<IFileTransferService, LocalFileService>();
 		}
 	}
 }

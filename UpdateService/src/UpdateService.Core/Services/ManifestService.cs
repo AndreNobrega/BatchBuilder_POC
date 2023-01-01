@@ -1,6 +1,7 @@
 ﻿namespace UpdateService.Core.Services
 {
-	internal class ManifestService
+	public class ManifestService
 	{
+
 	}
 }

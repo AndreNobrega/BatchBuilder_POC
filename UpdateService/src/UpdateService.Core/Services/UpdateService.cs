@@ -11,8 +11,8 @@ namespace UpdateService.Core.Services
 
 		public UpdateService(IFileTransferService fileTransferService, IManifestService manifestService)
 		{
-			this._fileTransferService = fileTransferService;
-			this._manifestService = manifestService;
+			_fileTransferService = fileTransferService;
+			_manifestService = manifestService;
 		}
 
 		public bool IsUpdateAvailable(DeployEnvironment environment)
@@ -21,7 +21,7 @@ namespace UpdateService.Core.Services
 			return _manifestService.IsUpdateAvailable(globalManifest);
 		}
 
-		public void Update(DeployEnvironment environment)
+		public void DownloadUpdate(DeployEnvironment environment)
 		{
 			throw new NotImplementedException();
 		}

@@ -3,11 +3,12 @@ using Moq;
 using NUnit.Framework;
 using System.Collections.Generic;
 using UpdateService.Core.Entities;
+using UpdateService.Core.Entities.Settings;
 using UpdateService.Core.Interfaces;
 
 namespace UpdateService.Worker.Tests
 {
-	public class WorkerTests
+    public class WorkerTests
 	{
 		internal Worker worker;
 		internal Mock<ILogger<Worker>> loggerMock;

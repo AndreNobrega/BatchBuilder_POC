@@ -1,8 +1,8 @@
-﻿using UpdateService.Core.Entities;
+﻿using UpdateService.Core.Entities.VersionManifest;
 
 namespace UpdateService.Core.Interfaces
 {
-	public interface IManifestService
+    public interface IManifestService
 	{
 		public LocalVersionManifest GetLocalVersionManifest();
 

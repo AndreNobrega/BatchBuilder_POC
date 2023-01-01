@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Threading.Tasks;
+using UpdateService.Core.Entities;
 using UpdateService.Core.Entities.VersionManifest;
 using UpdateService.Core.Interfaces;
 
 namespace UpdateService.Infrastructure.Services
 {
-    // TODO: implement SftpService
-
-    public class SftpService : IFileTransferService
+    public class LocalFileService : IFileTransferService
 	{
-		public Task<string> GetBinaries(Core.Entities.DeployEnvironment environment)
+		public Task<string> GetBinaries(DeployEnvironment environment)
 		{
 			throw new NotImplementedException();
 		}

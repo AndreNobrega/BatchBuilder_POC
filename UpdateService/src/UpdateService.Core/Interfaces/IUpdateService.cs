@@ -15,6 +15,6 @@ namespace UpdateService.Core.Interfaces
 		/// Update a deployment environment, if an update is available.
 		/// </summary>
 		/// <param name="environment">The environment to update.</param>
-		public void Update(DeployEnvironment environment);
+		public void DownloadUpdate(DeployEnvironment environment);
 	}
 }

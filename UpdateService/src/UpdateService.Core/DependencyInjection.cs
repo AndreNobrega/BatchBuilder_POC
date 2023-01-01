@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using System;
+using UpdateService.Core.Interfaces;
+using UpdateService.Core.Services;
 
 namespace UpdateService.Core
 {
@@ -7,7 +8,7 @@ namespace UpdateService.Core
 	{
 		public static void AddCoreServices(this IServiceCollection services)
 		{
-
+			services.AddScoped<IConfigurationService, ConfigurationService>();
 		}
 	}
 }
