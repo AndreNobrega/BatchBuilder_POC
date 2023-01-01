@@ -35,13 +35,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Installat
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{89ECF4EA-421B-42A2-ABA6-A292B20C04BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UpdateService.Worker", "UpdateService\src\UpdateService.Worker\UpdateService.Worker.csproj", "{17CDEED2-CD1A-48CB-BC9F-594D6E7344AC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UpdateService.Worker", "UpdateService\src\UpdateService.Worker\UpdateService.Worker.csproj", "{17CDEED2-CD1A-48CB-BC9F-594D6E7344AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UpdateService.Core", "UpdateService\src\UpdateService.Core\UpdateService.Core.csproj", "{F494E959-235C-47AE-B4D8-5B5AEE70194A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UpdateService.Core", "UpdateService\src\UpdateService.Core\UpdateService.Core.csproj", "{F494E959-235C-47AE-B4D8-5B5AEE70194A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UpdateService.Infrastructure", "UpdateService\src\UpdateService.Infrastructure\UpdateService.Infrastructure.csproj", "{C516234B-A9B5-4D49-9ECB-92D745675DE6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UpdateService.Infrastructure", "UpdateService\src\UpdateService.Infrastructure\UpdateService.Infrastructure.csproj", "{C516234B-A9B5-4D49-9ECB-92D745675DE6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UpdateService.Worker.Tests", "UpdateService.Worker.Tests\UpdateService.Worker.Tests.csproj", "{4EA4AD24-6C96-47F0-B654-7B2048053740}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UpdateService.Worker.Tests", "UpdateService.Worker.Tests\UpdateService.Worker.Tests.csproj", "{4EA4AD24-6C96-47F0-B654-7B2048053740}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UpdateService.Core.Tests", "UpdateService\tests\UpdateService.Core.Tests\UpdateService.Core.Tests.csproj", "{104150FF-3811-41B1-A1AD-1E3D1CC3BE3E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -97,6 +99,10 @@ Global
 		{4EA4AD24-6C96-47F0-B654-7B2048053740}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4EA4AD24-6C96-47F0-B654-7B2048053740}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4EA4AD24-6C96-47F0-B654-7B2048053740}.Release|Any CPU.Build.0 = Release|Any CPU
+		{104150FF-3811-41B1-A1AD-1E3D1CC3BE3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{104150FF-3811-41B1-A1AD-1E3D1CC3BE3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{104150FF-3811-41B1-A1AD-1E3D1CC3BE3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{104150FF-3811-41B1-A1AD-1E3D1CC3BE3E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -118,6 +124,7 @@ Global
 		{F494E959-235C-47AE-B4D8-5B5AEE70194A} = {89ECF4EA-421B-42A2-ABA6-A292B20C04BC}
 		{C516234B-A9B5-4D49-9ECB-92D745675DE6} = {89ECF4EA-421B-42A2-ABA6-A292B20C04BC}
 		{4EA4AD24-6C96-47F0-B654-7B2048053740} = {3B674B52-3F6D-4F65-B299-B43FB020BACC}
+		{104150FF-3811-41B1-A1AD-1E3D1CC3BE3E} = {3B674B52-3F6D-4F65-B299-B43FB020BACC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {740F71B2-6146-4680-B09A-2EC4C8D46F87}

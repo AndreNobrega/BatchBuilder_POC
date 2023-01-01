@@ -74,7 +74,16 @@ namespace UpdateService.Worker.Tests
 		[Test]
 		public void CheckForUpdates_IfUpdatesAvailable_DownloadBinariesAndQueueUpdate()
 		{
-			Assert.Pass();
+			// Arrange
+			updateServiceMock
+				.Setup(u => u.IsUpdateAvailable(It.IsAny<DeployEnvironment>()))
+				.Returns(true);
+
+			// Act
+			bool result = worker.CheckForUpdates();
+
+			// Assert
+			Assert.That(result, Is.True);
 		}
 
 		[Test]
