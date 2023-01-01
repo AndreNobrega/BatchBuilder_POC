@@ -1,13 +1,11 @@
 ﻿using Microsoft.Extensions.Configuration;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using UpdateService.Core.Entities.Settings;
 using UpdateService.Core.Interfaces;
 
 namespace UpdateService.Core.Services
 {
-    public class ConfigurationService : IConfigurationService
+	public class ConfigurationService : IConfigurationService
 	{
 		private readonly IConfiguration _configuration;
 
@@ -18,12 +16,12 @@ namespace UpdateService.Core.Services
 
 		public FileTransferSettings GetFileTransferSettings()
 		{
-			throw new NotImplementedException();
+			return _configuration.Get<FileTransferSettings>();
 		}
 
 		public List<Tenant> GetTenants()
 		{
-			throw new NotImplementedException();
+			return _configuration.Get<Tenants>()?.TenantSettings ?? new	List<Tenant>();
 		}
 	}
 }
