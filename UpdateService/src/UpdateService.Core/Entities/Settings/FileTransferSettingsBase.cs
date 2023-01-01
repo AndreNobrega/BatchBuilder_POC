@@ -3,6 +3,6 @@
 	public abstract class FileTransferSettingsBase
 	{
 		public string BinariesBasePath { get; set; }
-		public string GlobalVersionManifestPath { get; set; }
+		public string VersionManifestBasePath { get; set; }
 	}
 }
