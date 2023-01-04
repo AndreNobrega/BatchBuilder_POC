@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:InstallationManager.Presentation.WPF"
         mc:Ignorable="d"
         Title="Installation Manager" Height="450" Width="800">
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
