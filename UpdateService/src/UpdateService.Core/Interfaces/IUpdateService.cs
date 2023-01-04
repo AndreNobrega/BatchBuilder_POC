@@ -10,7 +10,7 @@ namespace UpdateService.Core.Interfaces
 		/// <param name="environment">The deployment environment for which to check whether or not there is an environment.</param>
 		/// <returns>True if an update is available, false otherwise.</returns>
 		public bool IsUpdateAvailable(DeployEnvironment environment);
-		
+
 		/// <summary>
 		/// Update a deployment environment, if an update is available.
 		/// </summary>

@@ -2,11 +2,11 @@
 
 namespace Infrastructure
 {
-    public static class DependencyInjection
-    {
-        public static void AddInfrastructureServices(this IServiceCollection services)
-        {
-            // todo: add DI to Infrastructure project
-        }
-    }
+	public static class DependencyInjection
+	{
+		public static void AddInfrastructureServices(this IServiceCollection services)
+		{
+			// todo: add DI to Infrastructure project
+		}
+	}
 }

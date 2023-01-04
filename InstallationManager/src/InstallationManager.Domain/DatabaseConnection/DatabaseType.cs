@@ -1,4 +1,4 @@
-﻿namespace Domain.DatabaseConnection
+﻿namespace InstallationManager.Domain.DatabaseConnection
 {
 	public enum DatabaseType
 	{

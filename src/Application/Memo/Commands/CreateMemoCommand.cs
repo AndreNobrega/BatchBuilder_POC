@@ -1,5 +1,4 @@
-﻿using Application.Common.Interfaces.Persistence;
-using Domain.Entities;
+﻿using Domain.Entities;
 using MediatR;
 
 namespace Application.Memo.Commands;

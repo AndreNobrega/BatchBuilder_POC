@@ -1,6 +1,6 @@
 ﻿using System.DirectoryServices.AccountManagement;
 
-namespace Application.Helpers
+namespace InstallationManager.Helpers
 {
 	public static class ActiveDirectoryHelper
 	{
@@ -12,12 +12,12 @@ namespace Application.Helpers
 		public static bool ADUserExists(string userName)
 		{
 			// Disable warning: method only works on Windows
-			#pragma warning disable CA1416 // Validate platform compatibility
+#pragma warning disable CA1416 // Validate platform compatibility
 			using var context = new PrincipalContext(ContextType.Domain);
 			var adUser = UserPrincipal.FindByIdentity(context, userName);
 
 			return adUser != null;
-			#pragma warning restore CA1416 // Validate platform compatibility
+#pragma warning restore CA1416 // Validate platform compatibility
 		}
 
 		/// <summary>
@@ -28,12 +28,12 @@ namespace Application.Helpers
 		public static bool ADGroupExists(string groupName)
 		{
 			// Disable warning: method only works on Windows
-			#pragma warning disable CA1416 // Validate platform compatibility
+#pragma warning disable CA1416 // Validate platform compatibility
 			using var context = new PrincipalContext(ContextType.Domain);
 			var adGroup = GroupPrincipal.FindByIdentity(context, groupName);
 
 			return adGroup != null;
-			#pragma warning restore CA1416 // Validate platform compatibility
+#pragma warning restore CA1416 // Validate platform compatibility
 		}
 	}
 }

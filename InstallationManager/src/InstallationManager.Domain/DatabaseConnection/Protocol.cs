@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Domain.DatabaseConnection
+﻿namespace InstallationManager.Domain.DatabaseConnection
 {
 	public enum Protocol
 	{

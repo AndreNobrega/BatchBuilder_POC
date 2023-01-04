@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 
-namespace Domain
+namespace InstallationManager.Domain
 {
 	public class Installation
 	{

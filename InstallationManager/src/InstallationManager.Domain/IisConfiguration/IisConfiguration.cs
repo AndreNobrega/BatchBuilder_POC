@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Domain.IisConfiguration
+namespace InstallationManager.Domain.IisConfiguration
 {
 	public class IisConfiguration
 	{

@@ -1,4 +1,4 @@
-﻿namespace Domain.DatabaseConnection
+﻿namespace InstallationManager.Domain.DatabaseConnection
 {
 	internal class SqlConnectionDetails : BaseDatabaseConnectionDetails
 	{

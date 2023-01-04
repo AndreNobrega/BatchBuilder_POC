@@ -1,7 +1,7 @@
 ﻿namespace UpdateService.Core.Entities.VersionManifest
 {
-    public class LocalVersionManifest : BaseVersionManifest
-    {
-        public string Customer { get; set; }
-    }
+	public class LocalVersionManifest : BaseVersionManifest
+	{
+		public string Customer { get; set; }
+	}
 }
