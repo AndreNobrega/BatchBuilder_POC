@@ -17,7 +17,10 @@ namespace Application.Helpers
 		/// <returns>True if the user has access to the path, false otherwise.</returns>
 		public static bool UserHasWriteAccessToPath(string user, string path)
 		{
-			DirectoryInfo di = new DirectoryInfo(path);
+			// Disable warning: method only works on Windows
+			#pragma warning disable CA1416 // Validate platform compatibility
+
+			DirectoryInfo di = new(path);
 			DirectorySecurity acl = di.GetAccessControl(AccessControlSections.All);
 			AuthorizationRuleCollection rules = acl.GetAccessRules(true, true, typeof(NTAccount));
 
@@ -30,15 +33,6 @@ namespace Application.Helpers
 					var filesystemAccessRule = (FileSystemAccessRule)rule;
 
 					//Cast to a FileSystemAccessRule to check for access rights
-					if ((filesystemAccessRule.FileSystemRights & FileSystemRights.WriteData) > 0 && filesystemAccessRule.AccessControlType != AccessControlType.Deny)
-					{
-						Console.WriteLine(string.Format("{0} has write access to {1}", user, path));
-					}
-					else
-					{
-						Console.WriteLine(string.Format("{0} does not have write access to {1}", user, path));
-					}
-
 					return 
 						(filesystemAccessRule.FileSystemRights & FileSystemRights.WriteData) > 0 
 						&& filesystemAccessRule.AccessControlType != AccessControlType.Deny;
@@ -48,6 +42,8 @@ namespace Application.Helpers
 			}
 
 			return false;
+
+			#pragma warning restore CA1416 // Validate platform compatibility
 		}
 	}
 }
