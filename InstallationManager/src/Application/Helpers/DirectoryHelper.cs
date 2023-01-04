@@ -7,7 +7,6 @@ namespace Application.Helpers
 {
 	public static class DirectoryHelper
 	{
-
 		/// <summary>
 		/// Check if a user has access to specific path.
 		/// 
