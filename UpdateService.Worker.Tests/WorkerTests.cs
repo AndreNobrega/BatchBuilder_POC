@@ -8,7 +8,7 @@ using UpdateService.Core.Interfaces;
 
 namespace UpdateService.Worker.Tests
 {
-    public class WorkerTests
+	public class WorkerTests
 	{
 		internal Worker worker;
 		internal Mock<ILogger<Worker>> loggerMock;
@@ -19,8 +19,8 @@ namespace UpdateService.Worker.Tests
 		public void Setup()
 		{
 			loggerMock = new Mock<ILogger<Worker>>();
-			updateServiceMock= new Mock<IUpdateService>();
-			configurationServiceMock= new Mock<IConfigurationService>();
+			updateServiceMock = new Mock<IUpdateService>();
+			configurationServiceMock = new Mock<IConfigurationService>();
 
 			SetUpTenants();
 

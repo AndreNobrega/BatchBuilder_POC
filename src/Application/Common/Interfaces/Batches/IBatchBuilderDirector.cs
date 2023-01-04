@@ -1,7 +1,7 @@
 ﻿namespace Application.Common.Interfaces.Batches
 {
-    internal interface IBatchBuilderDirector
-    {
-        internal BatchBase BuildBatch(IBatchRequest request);
-    }
+	internal interface IBatchBuilderDirector
+	{
+		internal BatchBase BuildBatch(IBatchRequest request);
+	}
 }

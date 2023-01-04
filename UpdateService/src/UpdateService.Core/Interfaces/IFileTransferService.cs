@@ -4,7 +4,7 @@ using UpdateService.Core.Entities.VersionManifest;
 
 namespace UpdateService.Core.Interfaces
 {
-    public interface IFileTransferService
+	public interface IFileTransferService
 	{
 		/// <summary>
 		/// Retrieve the global version manifest from the remote server.

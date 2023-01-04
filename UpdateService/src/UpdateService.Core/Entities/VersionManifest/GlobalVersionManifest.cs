@@ -1,6 +1,6 @@
 ﻿namespace UpdateService.Core.Entities.VersionManifest
 {
-    public class GlobalVersionManifest : BaseVersionManifest
-    {
-    }
+	public class GlobalVersionManifest : BaseVersionManifest
+	{
+	}
 }

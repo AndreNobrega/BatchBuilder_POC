@@ -6,7 +6,7 @@ using UpdateService.Core.Interfaces;
 
 namespace UpdateService.Infrastructure.Services
 {
-    public class LocalFileService : IFileTransferService
+	public class LocalFileService : IFileTransferService
 	{
 		public Task<string> GetBinaries(DeployEnvironment environment)
 		{

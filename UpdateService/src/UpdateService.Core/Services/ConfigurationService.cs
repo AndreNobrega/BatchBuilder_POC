@@ -21,7 +21,7 @@ namespace UpdateService.Core.Services
 
 		public List<Tenant> GetTenants()
 		{
-			return _configuration.Get<Tenants>()?.TenantSettings ?? new	List<Tenant>();
+			return _configuration.Get<Tenants>()?.TenantSettings ?? new List<Tenant>();
 		}
 	}
 }

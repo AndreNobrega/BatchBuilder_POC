@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Application.Memo.Commands;
+﻿using Application.Memo.Commands;
+using Microsoft.AspNetCore.Mvc;
 
 namespace WebUI.Controllers
 {

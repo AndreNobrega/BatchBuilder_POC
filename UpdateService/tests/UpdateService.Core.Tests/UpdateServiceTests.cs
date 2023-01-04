@@ -1,6 +1,6 @@
+using Moq;
 using NUnit.Framework;
 using UpdateService.Core.Interfaces;
-using Moq;
 
 namespace UpdateService.Core.Tests
 {
@@ -13,8 +13,8 @@ namespace UpdateService.Core.Tests
 		[SetUp]
 		public void Setup()
 		{
-			_fileTransferServiceMock= new Mock<IFileTransferService>();
-			_manifestServiceMock= new Mock<IManifestService>();
+			_fileTransferServiceMock = new Mock<IFileTransferService>();
+			_manifestServiceMock = new Mock<IManifestService>();
 
 			_updateService = new Services.UpdateService(_fileTransferServiceMock.Object, _manifestServiceMock.Object);
 		}

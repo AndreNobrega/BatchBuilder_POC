@@ -5,9 +5,9 @@ using UpdateService.Core.Interfaces;
 
 namespace UpdateService.Infrastructure.Services
 {
-    // TODO: implement SftpService
+	// TODO: implement SftpService
 
-    public class SftpService : IFileTransferService
+	public class SftpService : IFileTransferService
 	{
 		public Task<string> GetBinaries(Core.Entities.DeployEnvironment environment)
 		{

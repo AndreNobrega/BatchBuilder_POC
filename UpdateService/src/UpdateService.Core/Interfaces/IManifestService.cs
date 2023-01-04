@@ -2,7 +2,7 @@
 
 namespace UpdateService.Core.Interfaces
 {
-    public interface IManifestService
+	public interface IManifestService
 	{
 		public LocalVersionManifest GetLocalVersionManifest();
 

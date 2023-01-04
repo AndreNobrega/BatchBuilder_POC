@@ -3,7 +3,7 @@ using System.IO;
 using System.Security.AccessControl;
 using System.Security.Principal;
 
-namespace Application.Helpers
+namespace InstallationManager.Helpers
 {
 	public static class DirectoryHelper
 	{
@@ -18,7 +18,7 @@ namespace Application.Helpers
 		public static bool UserHasWriteAccessToPath(string user, string path)
 		{
 			// Disable warning: method only works on Windows
-			#pragma warning disable CA1416 // Validate platform compatibility
+#pragma warning disable CA1416 // Validate platform compatibility
 
 			DirectoryInfo di = new(path);
 			DirectorySecurity acl = di.GetAccessControl(AccessControlSections.All);
@@ -33,8 +33,8 @@ namespace Application.Helpers
 					var filesystemAccessRule = (FileSystemAccessRule)rule;
 
 					//Cast to a FileSystemAccessRule to check for access rights
-					return 
-						(filesystemAccessRule.FileSystemRights & FileSystemRights.WriteData) > 0 
+					return
+						(filesystemAccessRule.FileSystemRights & FileSystemRights.WriteData) > 0
 						&& filesystemAccessRule.AccessControlType != AccessControlType.Deny;
 				}
 
@@ -43,7 +43,7 @@ namespace Application.Helpers
 
 			return false;
 
-			#pragma warning restore CA1416 // Validate platform compatibility
+#pragma warning restore CA1416 // Validate platform compatibility
 		}
 	}
 }

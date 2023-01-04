@@ -1,8 +1,8 @@
 ﻿namespace Domain.Enums
 {
-    public enum BatchType
-    {
-        Email,
-        Maintenance
-    }
+	public enum BatchType
+	{
+		Email,
+		Maintenance
+	}
 }
