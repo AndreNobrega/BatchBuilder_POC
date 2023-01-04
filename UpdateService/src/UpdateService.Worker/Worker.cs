@@ -16,6 +16,7 @@ namespace UpdateService.Worker
 		private readonly IUpdateService _updateService;
 		private readonly IConfigurationService _configurationService;
 
+		// TODO: set up a flexible way of defining the delay between update checks
 		private readonly int delayInMilliseconds = 60 * 1000;
 
 		public Worker(ILogger<Worker> logger, IUpdateService updateService, IConfigurationService configurationService)
