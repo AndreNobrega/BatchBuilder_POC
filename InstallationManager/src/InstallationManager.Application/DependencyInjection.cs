@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using InstallationManager.Domain;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace InstallationManager.Application
 {
@@ -6,7 +7,7 @@ namespace InstallationManager.Application
 	{
 		public static void AddApplicationServices(this IServiceCollection services)
 		{
-
+			services.AddDomainServices();
 		}
 	}
 }
