@@ -31,9 +31,34 @@
                 <Label Grid.Row="1" >Site-wide stuff goes here</Label>
                 <TextBox Text="asdf" Grid.Row="0"/>
                 <TabControl Grid.Row="2">
+
                     <TabItem Header="TabItem">
-                        <Grid Background="#FFE5E5E5"/>
+                        <Grid Background="#FFE5E5E5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+
+                            <Label Grid.Column="0" Grid.Row="0">Database</Label>
+                            <ComboBox Grid.Column="1" Grid.Row="0"/>
+
+                            <Label Grid.Row="1" Grid.Column="0">User</Label>
+                            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding UserName, Mode = TwoWay}"/>
+
+                            <Label Grid.Row="2" Grid.Column="0">Password</Label>
+                            <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Password, Mode = TwoWay}"/>
+
+                            <Label Grid.Row="3" Grid.Column="0">Connection string</Label>
+                            <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding ConnectionString, Mode = TwoWay}"/>
+                        </Grid>
                     </TabItem>
+
                     <TabItem Header="TabItem">
                         <Grid Background="#FFE5E5E5"/>
                     </TabItem>

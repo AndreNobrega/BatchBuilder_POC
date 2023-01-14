@@ -1,6 +1,9 @@
 ﻿using InstallationManager.Application;
+using InstallationManager.Domain.Model;
+using InstallationManager.Domain.Model.DatabaseConnection;
 using InstallationManager.Infrastructure;
 using Microsoft.Extensions.Hosting;
+using System.Data.SqlClient;
 using System.Windows;
 
 namespace InstallationManager.Presentation.WPF
@@ -10,9 +13,17 @@ namespace InstallationManager.Presentation.WPF
 	/// </summary>
 	public partial class MainWindow : Window
 	{
+		//Installation installation = new Installation();
+		
 		public MainWindow()
 		{
 			InitializeComponent();
+			//this.DataContext = installation;
+			this.DataContext = new SqlConnectionDetails()
+			{
+				UserName = "admin",
+				Password = "admin",
+			}; ;
 		}
 	}
 }
