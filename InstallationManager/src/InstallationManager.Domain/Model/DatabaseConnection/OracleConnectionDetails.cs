@@ -1,6 +1,4 @@
 ﻿using InstallationManager.Domain.Extensions;
-using System.Text;
-using System.Text.RegularExpressions;
 
 namespace InstallationManager.Domain.Model.DatabaseConnection
 {

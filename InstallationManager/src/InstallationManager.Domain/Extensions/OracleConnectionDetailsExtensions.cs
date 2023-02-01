@@ -44,7 +44,7 @@ namespace InstallationManager.Domain.Extensions
 			connectionDetails.ServiceName = _serviceNameRegex.Match(connectionString).ToString();
 		}
 
-		private static string ExtractValueFromConnectionStringParameter(Regex regex, string connectionString)
+		private static string ExtractValueFromConnectionString(Regex regex, string connectionString)
 		{
 			throw new NotImplementedException();
 
@@ -56,6 +56,7 @@ namespace InstallationManager.Domain.Extensions
 			 */
 
 			var parameter = regex.Match(connectionString).ToString();
+			var parameterWithoutSpaces = _removeSpacesRegex.Match(parameter).ToString();
 
 		}
 
