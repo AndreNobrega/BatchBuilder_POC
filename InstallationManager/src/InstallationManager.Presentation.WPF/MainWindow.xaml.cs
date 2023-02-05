@@ -19,6 +19,14 @@ namespace InstallationManager.Presentation.WPF
 		{
 			InitializeComponent();
 			//this.DataContext = installation;
+
+			/*
+			 * TODO: 
+			 *	- create helper in Application layer that (de)constructs connection strings using the Domain layer's connection string extensions
+			 *	- hook up helper to presentation layer's fields
+			 */
+
+
 			this.DataContext = new SqlConnectionDetails()
 			{
 				UserId = "admin",
