@@ -21,7 +21,7 @@ namespace InstallationManager.Presentation.WPF
 			//this.DataContext = installation;
 			this.DataContext = new SqlConnectionDetails()
 			{
-				UserName = "admin",
+				UserId = "admin",
 				Password = "admin",
 			}; ;
 		}
