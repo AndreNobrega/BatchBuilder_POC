@@ -19,12 +19,12 @@ namespace InstallationManager.Domain.Extensions
 					sb.Append("Integrated Security=yes;");
 
 				else
-					sb.Append($"User Id={connectionDetails.UserName};Password={(!censorPassword ? connectionDetails.Password : "* * *")};Integrated Security=no;");
+					sb.Append($"User Id={connectionDetails.UserId};Password={(!censorPassword ? connectionDetails.Password : "* * *")};Integrated Security=no;");
 			}
 			else
 			{
 				sb.Append($"Data Source = (DESCRIPTION = (ADDRESS = (PROTOCOL = {connectionDetails.Protocol})(HOST = {connectionDetails.Host})(PORT = {connectionDetails.Port}))(CONNECT_DATA = (SERVICE_NAME = {connectionDetails.ServiceName})));");
-				sb.Append($"User Id = {connectionDetails.UserName}; Password = {(!censorPassword ? connectionDetails.Password : "* * *")};");
+				sb.Append($"User Id = {connectionDetails.UserId}; Password = {(!censorPassword ? connectionDetails.Password : "* * *")};");
 			}
 
 			return sb.ToString();
@@ -35,55 +35,41 @@ namespace InstallationManager.Domain.Extensions
 			connectionDetails.UseTns = !connectionString.Contains($"Data Source = (DESCRIPTION = (ADDRESS =");
 			connectionDetails.UseIntegratedSecurity = connectionString.Contains("Integrated Security=yes");
 
-			//TODO: use regex to extract the other properties from the connection string
-
-			connectionDetails.UserName = _userIdRegex.Match(connectionString).ToString();
-			connectionDetails.Password = _passwordRegex.Match(connectionString).ToString();
+			connectionDetails.UserId = _userIdRegex.Match(connectionString).ToString() ?? _uidRegex.Match(connectionString).ToString();
+			connectionDetails.Password = _passwordRegex.Match(connectionString).ToString() ?? _pwdRegex.Match(connectionString).ToString();
 			connectionDetails.Host = _hostRegex.Match(connectionString).ToString();
 			connectionDetails.Port = _portRegex.Match(connectionString).ToString();
 			connectionDetails.ServiceName = _serviceNameRegex.Match(connectionString).ToString();
-		}
-
-		private static string ExtractValueFromConnectionString(Regex regex, string connectionString)
-		{
-			throw new NotImplementedException();
-
-			/*
-			 * TODO
-			 * clean up whitespaces
-			 * remove parameter name and equals sign ("DESCRIPTION = ")
-			 * extract value
-			 */
-
-			var parameter = regex.Match(connectionString).ToString();
-			var parameterWithoutSpaces = _removeSpacesRegex.Match(parameter).ToString();
-
-		}
+		}	
 
 		#region Regex
-		[GeneratedRegex("(?<=(?i)User Id=).+?(?=\\;)", RegexOptions.None, "en-BE")]
+		[GeneratedRegex("(?i)User Id\\s*=\\s*([^;]*);", RegexOptions.None, "en-GB")]
 		private static partial Regex UserIdRegex();
 		private static readonly Regex _userIdRegex = UserIdRegex();
+		
+		[GeneratedRegex("(?i)uid\\s*=\\s*([^;]*);", RegexOptions.None, "en-GB")]
+		private static partial Regex UidRegex();
+		private static readonly Regex _uidRegex = UserIdRegex();
 
-		[GeneratedRegex("(?<=(?i)Password=).+?(?=\\;)", RegexOptions.None, "en-BE")]
+		[GeneratedRegex("(?i)Password\\s*=\\s*([^;]*);", RegexOptions.None, "en-GB")]
 		private static partial Regex PasswordRegex();
 		private static readonly Regex _passwordRegex = PasswordRegex();
+		
+		[GeneratedRegex("(?i)pwd\\s*=\\s*([^;]*);", RegexOptions.None, "en-GB")]
+		private static partial Regex PwdRegex();
+		private static readonly Regex _pwdRegex = PasswordRegex();
 
-		[GeneratedRegex("(?<=(?i)Host=).+?(?=\\))", RegexOptions.None, "en-BE")]
+		[GeneratedRegex("(?i)HOST\\s*=\\s*([^)]*)\\s*\\)", RegexOptions.None, "en-GB")]
 		private static partial Regex HostRegex();
 		private static readonly Regex _hostRegex = HostRegex();
 
-		[GeneratedRegex("(?<=(?i)Port=).+?(?=\\))", RegexOptions.None, "en-BE")]
+		[GeneratedRegex("(?i)PORT\\s*=\\s*([^)]*)\\s*\\)", RegexOptions.None, "en-GB")]
 		private static partial Regex PortRegex();
 		private static readonly Regex _portRegex = PortRegex();
 
-		[GeneratedRegex("(?<=(?i)SERVICE_NAME=).+?(?=\\))", RegexOptions.None, "en-BE")]
+		[GeneratedRegex("(?i)SERVICE_NAME\\s*=\\s*([^)]*)\\s*\\)", RegexOptions.None, "en-GB")]
 		private static partial Regex ServiceNameRegex();
 		private static readonly Regex _serviceNameRegex = ServiceNameRegex();
-
-		[GeneratedRegex("\\s*=\\s*", RegexOptions.None, "en-BE")]
-		private static partial Regex RemoveSpacesRegex();
-		private static readonly Regex _removeSpacesRegex = RemoveSpacesRegex();
 		#endregion
 	}
 }
