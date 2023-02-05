@@ -11,10 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Validators\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\InstallationManager.Domain\InstallationManager.Domain.csproj" />
   </ItemGroup>
 

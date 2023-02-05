@@ -1,6 +1,9 @@
 ﻿using InstallationManager.Application;
+using InstallationManager.Domain.Model;
+using InstallationManager.Domain.Model.DatabaseConnection;
 using InstallationManager.Infrastructure;
 using Microsoft.Extensions.Hosting;
+using System.Data.SqlClient;
 using System.Windows;
 
 namespace InstallationManager.Presentation.WPF
@@ -10,22 +13,17 @@ namespace InstallationManager.Presentation.WPF
 	/// </summary>
 	public partial class MainWindow : Window
 	{
-		private readonly IHost builder;
-
+		//Installation installation = new Installation();
+		
 		public MainWindow()
 		{
-			builder = CreateHostBuilder(null).Build();
-			builder.Run();
-
 			InitializeComponent();
+			//this.DataContext = installation;
+			this.DataContext = new SqlConnectionDetails()
+			{
+				UserId = "admin",
+				Password = "admin",
+			}; ;
 		}
-
-		public static IHostBuilder CreateHostBuilder(string[]? args) =>
-			Host.CreateDefaultBuilder(args)
-				.ConfigureServices((hostContext, services) =>
-				{
-					services.AddApplicationServices();
-					services.AddInfrastructureServices();
-				});
 	}
 }
