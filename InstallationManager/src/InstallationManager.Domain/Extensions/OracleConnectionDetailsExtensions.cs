@@ -1,5 +1,4 @@
 ﻿using InstallationManager.Domain.Model.DatabaseConnection;
-using System;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -7,7 +6,7 @@ namespace InstallationManager.Domain.Extensions
 {
 	internal static partial class OracleConnectionDetailsExtensions
 	{
-		internal static string GetConnectionString(this OracleConnectionDetails connectionDetails, bool censorPassword = false)
+		internal static void GetConnectionStringFromParams(this OracleConnectionDetails connectionDetails, bool censorPassword = false)
 		{
 			StringBuilder sb = new();
 
@@ -27,19 +26,19 @@ namespace InstallationManager.Domain.Extensions
 				sb.Append($"User Id = {connectionDetails.UserId}; Password = {(!censorPassword ? connectionDetails.Password : "* * *")};");
 			}
 
-			return sb.ToString();
+			connectionDetails.ConnectionString = sb.ToString();
 		}
 
-		internal static void GetDetailsFromConnectionString(this OracleConnectionDetails connectionDetails, string connectionString)
+		internal static void GetParamsFromConnectionString(this OracleConnectionDetails connectionDetails)
 		{
-			connectionDetails.UseTns = !connectionString.Contains($"Data Source = (DESCRIPTION = (ADDRESS =");
-			connectionDetails.UseIntegratedSecurity = connectionString.Contains("Integrated Security=yes");
+			connectionDetails.UseTns = !connectionDetails.ConnectionString.Contains($"Data Source = (DESCRIPTION = (ADDRESS =");
+			connectionDetails.UseIntegratedSecurity = connectionDetails.ConnectionString.Contains("Integrated Security=yes");
 
-			connectionDetails.UserId = _userIdRegex.Match(connectionString).ToString() ?? _uidRegex.Match(connectionString).ToString();
-			connectionDetails.Password = _passwordRegex.Match(connectionString).ToString() ?? _pwdRegex.Match(connectionString).ToString();
-			connectionDetails.Host = _hostRegex.Match(connectionString).ToString();
-			connectionDetails.Port = _portRegex.Match(connectionString).ToString();
-			connectionDetails.ServiceName = _serviceNameRegex.Match(connectionString).ToString();
+			connectionDetails.UserId = _userIdRegex.Match(connectionDetails.ConnectionString).ToString() ?? _uidRegex.Match(connectionDetails.ConnectionString).ToString();
+			connectionDetails.Password = _passwordRegex.Match(connectionDetails.ConnectionString).ToString() ?? _pwdRegex.Match(connectionDetails.ConnectionString).ToString();
+			connectionDetails.Host = _hostRegex.Match(connectionDetails.ConnectionString).ToString();
+			connectionDetails.Port = _portRegex.Match(connectionDetails.ConnectionString).ToString();
+			connectionDetails.ServiceName = _serviceNameRegex.Match(connectionDetails.ConnectionString).ToString();
 		}	
 
 		#region Regex
@@ -49,7 +48,7 @@ namespace InstallationManager.Domain.Extensions
 		
 		[GeneratedRegex("(?i)uid\\s*=\\s*([^;]*);", RegexOptions.None, "en-GB")]
 		private static partial Regex UidRegex();
-		private static readonly Regex _uidRegex = UserIdRegex();
+		private static readonly Regex _uidRegex = UidRegex();
 
 		[GeneratedRegex("(?i)Password\\s*=\\s*([^;]*);", RegexOptions.None, "en-GB")]
 		private static partial Regex PasswordRegex();
@@ -57,7 +56,7 @@ namespace InstallationManager.Domain.Extensions
 		
 		[GeneratedRegex("(?i)pwd\\s*=\\s*([^;]*);", RegexOptions.None, "en-GB")]
 		private static partial Regex PwdRegex();
-		private static readonly Regex _pwdRegex = PasswordRegex();
+		private static readonly Regex _pwdRegex = PwdRegex();
 
 		[GeneratedRegex("(?i)HOST\\s*=\\s*([^)]*)\\s*\\)", RegexOptions.None, "en-GB")]
 		private static partial Regex HostRegex();

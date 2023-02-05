@@ -8,11 +8,11 @@ namespace InstallationManager.Domain.Extensions
 	{
 		private static readonly int _defaultPort = 1433;
 
-		internal static string GetConnectionString(this SqlConnectionDetails connectionDetails, bool censorPassword = false)
+		internal static string GetConnectionStringFromParams(this SqlConnectionDetails connectionDetails, bool censorPassword = false)
 		{
 			StringBuilder sb = new();
 
-			sb.Append($"Server={connectionDetails.Server}");
+			sb.Append($"Server={connectionDetails.Server};");
 			if (connectionDetails.Port != null && connectionDetails.Port != _defaultPort) sb.Append($",{connectionDetails.Port}");
 			sb.Append($"Database={connectionDetails.Database};");
 
@@ -25,19 +25,18 @@ namespace InstallationManager.Domain.Extensions
 			return sb.ToString();
 		}
 
-		internal static void GetDetailsFromConnectionString(this SqlConnectionDetails connectionDetails, string connectionString)
+		internal static void GetParamsFromConnectionString(this SqlConnectionDetails connectionDetails)
 		{
-			connectionDetails.Server = _serverRegex.Match(connectionString).Value;
-			connectionDetails.Port = _portRegex.IsMatch(connectionString)
-				? int.Parse(_portRegex.Match(connectionString).Value)
+			connectionDetails.Server = _serverRegex.Match(connectionDetails.ConnectionString).Value;
+			connectionDetails.Port = _portRegex.IsMatch(connectionDetails.ConnectionString)
+				? int.Parse(_portRegex.Match(connectionDetails.ConnectionString).Value)
 				: null;
 
-			connectionDetails.UserId = _userIdRegex.Match(connectionString).Value;
-			connectionDetails.Password = _passwordRegex.Match(connectionString).Value;
-			connectionDetails.Database = _databaseRegex.Match(connectionString).Value;
-			connectionDetails.TrustedConnection = _trustedConnectionRegex.IsMatch(connectionString)
-				? bool.Parse(_trustedConnectionRegex.Match(connectionString).Value)
-				: false;
+			connectionDetails.UserId = _userIdRegex.Match(connectionDetails.ConnectionString).Value;
+			connectionDetails.Password = _passwordRegex.Match(connectionDetails.ConnectionString).Value;
+			connectionDetails.Database = _databaseRegex.Match(connectionDetails.ConnectionString).Value;
+			connectionDetails.TrustedConnection = _trustedConnectionRegex.IsMatch(connectionDetails.ConnectionString)
+				&& bool.Parse(_trustedConnectionRegex.Match(connectionDetails.ConnectionString).Value);
 		}
 
 		#region Regex
