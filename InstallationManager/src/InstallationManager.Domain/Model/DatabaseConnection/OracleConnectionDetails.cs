@@ -12,14 +12,14 @@ namespace InstallationManager.Domain.Model.DatabaseConnection
         public string ServiceName { get; set; }
         public Protocol Protocol { get; set; }
 
-		protected override string ComposeConnectionString(bool censorPassword = false)
+		public override string GetConnectionStringFromParams(bool censorPassword = false)
 		{
-            return this.GetConnectionString(censorPassword);
+			return this.GetConnectionStringFromParams(censorPassword);
 		}
 
-		protected override void DeconstructConnectionString(string connectionString)
+		public override void GetParamsFromConnectionString()
 		{
-            this.GetDetailsFromConnectionString(connectionString);   
+			this.GetParamsFromConnectionString();   
 		}
 	}
 }

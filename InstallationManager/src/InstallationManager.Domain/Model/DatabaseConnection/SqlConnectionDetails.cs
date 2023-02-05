@@ -9,14 +9,14 @@ namespace InstallationManager.Domain.Model.DatabaseConnection
 		public int? Port { get; set; }
         public bool TrustedConnection { get; set; }
 
-		protected override string ComposeConnectionString(bool censorPassword = false)
+		public override string GetConnectionStringFromParams(bool censorPassword = false)
 		{
-			return this.GetConnectionString(censorPassword);
+			return SqlConnectionDetailsExtensions.GetConnectionStringFromParams(this, censorPassword);
 		}
 
-		protected override void DeconstructConnectionString(string connectionString)
+		public override void GetParamsFromConnectionString()
 		{
-			this.GetDetailsFromConnectionString(connectionString);
+			SqlConnectionDetailsExtensions.GetParamsFromConnectionString(this);
 		}
 	}
 }

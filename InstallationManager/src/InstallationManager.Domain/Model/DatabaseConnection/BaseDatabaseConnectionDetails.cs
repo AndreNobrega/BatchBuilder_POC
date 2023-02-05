@@ -3,27 +3,29 @@
     public abstract class BaseDatabaseConnectionDetails
     {
         public string UserId { get; set; }
+
         public string Password { get; set; }
+
         public string ConnectionString
         {
             get
             {
-                return ComposeConnectionString();
+                return GetConnectionStringFromParams();
             }
             set
             {
-                DeconstructConnectionString(value);
+                GetParamsFromConnectionString();
             }
         }
         
         public string CensoredConnectionString { 
             get
             {
-                return ComposeConnectionString(true);
+                return GetConnectionStringFromParams(true);
             } 
         }
 
-        protected abstract string ComposeConnectionString(bool censorPassword = false);
-        protected abstract void DeconstructConnectionString(string connectionString);
+        public abstract string GetConnectionStringFromParams(bool censorPassword = false);
+        public abstract void GetParamsFromConnectionString();
     }
 }
