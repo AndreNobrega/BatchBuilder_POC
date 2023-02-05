@@ -1,9 +1,4 @@
-﻿using InstallationManager.Application;
-using InstallationManager.Domain.Model;
-using InstallationManager.Domain.Model.DatabaseConnection;
-using InstallationManager.Infrastructure;
-using Microsoft.Extensions.Hosting;
-using System.Data.SqlClient;
+﻿using InstallationManager.Domain.Model.DatabaseConnection;
 using System.Windows;
 
 namespace InstallationManager.Presentation.WPF
@@ -14,7 +9,8 @@ namespace InstallationManager.Presentation.WPF
 	public partial class MainWindow : Window
 	{
 		//Installation installation = new Installation();
-		
+		SqlConnectionDetails sqlConnectionDetails = new() { Database = "database", Server = "server", UserId = "user", Password = "password"};
+
 		public MainWindow()
 		{
 			InitializeComponent();
@@ -24,14 +20,10 @@ namespace InstallationManager.Presentation.WPF
 			 * TODO: 
 			 *	- create helper in Application layer that (de)constructs connection strings using the Domain layer's connection string extensions
 			 *	- hook up helper to presentation layer's fields
+			 *	- change the Connection String behaviour so it isn't automatically set when params change and vice-versa. This messes with the input.
 			 */
 
-
-			this.DataContext = new SqlConnectionDetails()
-			{
-				UserId = "admin",
-				Password = "admin",
-			}; ;
+			this.DataContext = sqlConnectionDetails;
 		}
 	}
 }
